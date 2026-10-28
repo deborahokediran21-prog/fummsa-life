@@ -720,7 +720,55 @@
               </ul>
             </div>
           </div>
-        </section>
+        </section
+<div class="section-heading">
+  <h2>Explore Our 17 Academic Programmes</h2>
+  <p>Find your programme and explore your academic journey.</p>
+</div>
+
+<input
+  type="search"
+  id="courseSearch"
+  placeholder="Search programmes..."
+  aria-label="Search academic programmes"
+  style="width:100%;padding:12px;margin:20px 0;border:1px solid #ccc;border-radius:8px;"
+/>
+
+<div class="cards" id="courseList">
+  <article class="card"><h3>Doctor of Optometry</h3><p>6 years</p></article>
+  <article class="card"><h3>Pharmacology</h3><p>4 years</p></article>
+  <article class="card"><h3>Human Nutrition and Dietetics</h3><p>5 years</p></article>
+  <article class="card"><h3>Radiography</h3><p>5 years</p></article>
+  <article class="card"><h3>Dental Therapy</h3><p>5 years</p></article>
+  <article class="card"><h3>Medicine and Surgery</h3><p>6 years</p></article>
+  <article class="card"><h3>Nursing</h3><p>5 years</p></article>
+  <article class="card"><h3>Doctor of Physiotherapy</h3><p>6 years</p></article>
+  <article class="card"><h3>Information Technology and Health Informatics</h3><p>5 years</p></article>
+  <article class="card"><h3>Doctor of Pharmacy</h3><p>6 years</p></article>
+  <article class="card"><h3>Physiology</h3><p>5 years</p></article>
+  <article class="card"><h3>Health Information Management</h3><p>5 years</p></article>
+  <article class="card"><h3>Microbiology</h3><p>5 years</p></article>
+  <article class="card"><h3>Human Anatomy</h3><p>5 years</p></article>
+  <article class="card"><h3>Biochemistry</h3><p>5 years</p></article>
+  <article class="card"><h3>Chemistry</h3><p>5 years</p></article>
+  <article class="card"><h3>Dentistry and Dental Surgery</h3><p>6 years</p></article>
+</div>
+
+<script>
+  const courseSearch = document.getElementById("courseSearch");
+  const courseCards = document.querySelectorAll("#courseList .card");
+
+  courseSearch.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+
+    courseCards.forEach(function (card) {
+      card.style.display = card.textContent.toLowerCase().includes(query)
+        ? ""
+        : "none";
+    });
+  });
+</script>
+>
 
         <section id="events">
           <div class="section-heading">

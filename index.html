@@ -50,8 +50,16 @@
         text-decoration: none;
       }
 
-      button {
+      button,
+      input {
         font: inherit;
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible {
+        outline: 3px solid rgba(20, 125, 88, 0.4);
+        outline-offset: 3px;
       }
 
       .container {
@@ -115,7 +123,9 @@
       .nav-cta:hover,
       .nav-cta:focus-visible,
       .btn:hover,
-      .btn:focus-visible {
+      .btn:focus-visible,
+      .programme-btn:hover,
+      .programme-btn:focus-visible {
         transform: translateY(-1px);
       }
 
@@ -175,7 +185,8 @@
         margin-top: 28px;
       }
 
-      .btn {
+      .btn,
+      .programme-btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -183,6 +194,7 @@
         padding: 0.95rem 1.4rem;
         font-weight: 700;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+        cursor: pointer;
       }
 
       .btn-primary {
@@ -301,6 +313,10 @@
         box-shadow: 0 18px 38px rgba(16, 38, 77, 0.08);
       }
 
+      .card[hidden] {
+        display: none !important;
+      }
+
       .icon-box {
         width: 52px;
         height: 52px;
@@ -334,7 +350,8 @@
       .community-panel,
       .points-box,
       .testimonial-box,
-      .cta-box {
+      .cta-box,
+      .programme-details {
         background: var(--white);
         border: 1px solid var(--border);
         border-radius: 22px;
@@ -518,6 +535,56 @@
 
       .cta-box p {
         color: rgba(255, 255, 255, 0.82);
+      }
+
+      .programme-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+      }
+
+      .programme-toolbar input {
+        flex: 1 1 280px;
+        min-width: 0;
+        padding: 12px 14px;
+        border: 1px solid rgba(16, 38, 77, 0.2);
+        border-radius: 12px;
+        background: var(--white);
+        color: var(--text);
+      }
+
+      .programme-count {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .programme-details {
+        display: none;
+        margin-top: 24px;
+      }
+
+      .programme-details.visible {
+        display: block;
+      }
+
+      .programme-details h3 {
+        margin-bottom: 8px;
+      }
+
+      .programme-details p {
+        color: var(--muted);
+        margin-top: 8px;
+      }
+
+      .programme-btn {
+        background: var(--green);
+        color: var(--white);
+        border: none;
+        width: 100%;
+        margin-top: 16px;
       }
 
       footer {
@@ -728,178 +795,127 @@
             <p>Find your programme and explore your academic journey.</p>
           </div>
 
-          <input
-            type="search"
-            id="courseSearch"
-            placeholder="Search programmes..."
-            aria-label="Search academic programmes"
-            style="width:100%;padding:12px;margin:20px 0;border:1px solid #ccc;border-radius:8px;"
-          />
+          <div class="programme-toolbar">
+            <input
+              type="search"
+              id="courseSearch"
+              placeholder="Search programmes..."
+              aria-label="Search academic programmes"
+            />
+            <p id="programmeCount" class="programme-count" aria-live="polite">Showing 17 of 17 programmes</p>
+          </div>
 
           <div class="cards" id="courseList">
-            <article class="card">
+            <article class="card" data-title="doctor of optometry" data-duration="6 years" data-description="Build a strong foundation in clinical practice, patient care, and eye health while exploring advanced optics and visual sciences.">
               <h3>Doctor of Optometry</h3>
               <p>6 years</p>
-              <button type="button" onclick="alert('Doctor of Optometry: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-                View programme
-              </button>
+              <button type="button" class="programme-btn">View programme</button>
             </article>
 
-            <article class="card">
+            <article class="card" data-title="pharmacology" data-duration="4 years" data-description="Study drug action, therapeutic uses, and research in pharmacology to prepare for roles in healthcare and life sciences.">
               <h3>Pharmacology</h3>
               <p>4 years</p>
-              <button type="button" onclick="alert('Pharmacology: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-                View programme
-              </button>
+              <button type="button" class="programme-btn">View programme</button>
             </article>
 
-            
-<article class="card">
-  <h3>Human Nutrition and Dietetics</h3>
-  <p>5 years</p>
-  <button type="button" onclick="alert('Human Nutrition and Dietetics: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-    View programme
-  </button>
-</article>
+            <article class="card" data-title="human nutrition and dietetics" data-duration="5 years" data-description="Learn about nutrition science, wellness, food systems, and patient-centered dietetic practice for improved health outcomes.">
+              <h3>Human Nutrition and Dietetics</h3>
+              <p>5 years</p>
+              <button type="button" class="programme-btn">View programme</button>
+            </article>
 
-            
-<article class="card">
-  <h3>Radiography</h3>
-  <p>5 years</p>
-  <button type="button" onclick="alert('Radiography: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-    View programme
-  </button>
-</article>
+            <article class="card" data-title="radiography" data-duration="5 years" data-description="Gain hands-on skills in diagnostic imaging, patient care, and medical technology to support modern healthcare systems.">
+              <h3>Radiography</h3>
+              <p>5 years</p>
+              <button type="button" class="programme-btn">View programme</button>
+            </article>
 
-            
-<article class="card">
-  <h3>Dental Therapy</h3>
-  <p>5 years</p>
-  <button type="button" onclick="alert('Dental Therapy: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-    View programme
-  </button>
-</article>
+            <article class="card" data-title="dental therapy" data-duration="5 years" data-description="Develop expertise in preventive oral care, clinical treatment, and patient education in a growing healthcare field.">
+              <h3>Dental Therapy</h3>
+              <p>5 years</p>
+              <button type="button" class="programme-btn">View programme</button>
+            </article>
 
-            
-<article class="card">
-  <h3>Medicine and Surgery</h3>
-  <p>6 years</p>
-  <button type="button" onclick="alert('Medicine and Surgery: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-    View programme
-  </button>
-</article>
+            <article class="card" data-title="medicine and surgery" data-duration="6 years" data-description="Prepare for a rewarding career in medicine through rigorous clinical training, diagnostic reasoning, and compassionate care.">
+              <h3>Medicine and Surgery</h3>
+              <p>6 years</p>
+              <button type="button" class="programme-btn">View programme</button>
+            </article>
 
-            
-<article class="card">
-  <h3>Nursing</h3>
-  <p>5 years</p>
-  <button type="button" onclick="alert('Nursing: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-    View programme
-  </button>
-</article>
+            <article class="card" data-title="nursing" data-duration="5 years" data-description="Train to lead patient care, support families, and provide professional nursing services in diverse healthcare environments.">
+              <h3>Nursing</h3>
+              <p>5 years</p>
+              <button type="button" class="programme-btn">View programme</button>
+            </article>
 
-            
-<article class="card">
-  <h3>Doctor of Physiotherapy</h3>
-  <p>6 years</p>
-  <button type="button" onclick="alert('Doctor of Physiotherapy: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-    View programme
-  </button>
-</article>
+            <article class="card" data-title="doctor of physiotherapy" data-duration="6 years" data-description="Learn rehabilitation strategies, movement science, and patient treatment techniques to restore mobility and independence.">
+              <h3>Doctor of Physiotherapy</h3>
+              <p>6 years</p>
+              <button type="button" class="programme-btn">View programme</button>
+            </article>
 
-            
-<article class="card">
-  <h3>Information Technology and Health Informatics</h3>
-  <p>5 years</p>
-  <button type="button" onclick="alert('Information Technology and Health Informatics: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-    View programme
-  </button>
-</article>
+            <article class="card" data-title="information technology and health informatics" data-duration="5 years" data-description="Combine technology, healthcare systems, and analytics to improve data management and patient outcomes across health services.">
+              <h3>Information Technology and Health Informatics</h3>
+              <p>5 years</p>
+              <button type="button" class="programme-btn">View programme</button>
+            </article>
 
-            
-            
-<article class="card">
-  <h3>Doctor of Pharmacy</h3>
-  <p>6 years</p>
-  <button type="button" onclick="alert('Doctor of Pharmacy: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-    View programme
-  </button>
-</article>
+            <article class="card" data-title="doctor of pharmacy" data-duration="6 years" data-description="Explore drug development, patient counseling, and clinical practice to prepare for impactful work in pharmaceutical care.">
+              <h3>Doctor of Pharmacy</h3>
+              <p>6 years</p>
+              <button type="button" class="programme-btn">View programme</button>
+            </article>
 
-           
-<article class="card">
-  <h3>Physiology</h3>
-  <p>5 years</p>
-  <button type="button" onclick="alert('Physiology: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-    View programme
-  </button>
-</article>
+            <article class="card" data-title="physiology" data-duration="5 years" data-description="Study how the human body functions in health and disease, opening pathways into research, healthcare, and laboratory science.">
+              <h3>Physiology</h3>
+              <p>5 years</p>
+              <button type="button" class="programme-btn">View programme</button>
+            </article>
 
-            
-<article class="card">
-  <h3>Health Information Management</h3>
-  <p>5 years</p>
-  <button type="button" onclick="alert('Health Information Management: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-    View programme
-  </button>
-</article>
+            <article class="card" data-title="health information management" data-duration="5 years" data-description="Develop skills in health data management, records systems, compliance, and efficient healthcare operations.">
+              <h3>Health Information Management</h3>
+              <p>5 years</p>
+              <button type="button" class="programme-btn">View programme</button>
+            </article>
 
-           
-<article class="card">
-  <h3>Microbiology</h3>
-  <p>5 years</p>
-  <button type="button" onclick="alert('Microbiology: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-    View programme
-  </button>
-</article>
+            <article class="card" data-title="microbiology" data-duration="5 years" data-description="Explore microbes, disease processes, and laboratory methods that support public health, diagnostics, and research.">
+              <h3>Microbiology</h3>
+              <p>5 years</p>
+              <button type="button" class="programme-btn">View programme</button>
+            </article>
 
-            
-<article class="card">
-  <h3>Human Anatomy</h3>
-  <p>5 years</p>
-  <button type="button" onclick="alert('Human Anatomy: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-    View programme
-  </button>
-</article>
+            <article class="card" data-title="human anatomy" data-duration="5 years" data-description="Study the structure of the human body through detailed anatomical analysis, laboratory work, and clinical applications.">
+              <h3>Human Anatomy</h3>
+              <p>5 years</p>
+              <button type="button" class="programme-btn">View programme</button>
+            </article>
 
-            
-<article class="card">
-  <h3>Biochemistry</h3>
-  <p>5 years</p>
-  <button type="button" onclick="alert('Biochemistry: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-    View programme
-  </button>
-</article>
+            <article class="card" data-title="biochemistry" data-duration="5 years" data-description="Understand life processes at the molecular level through chemistry, metabolism, and biological research.">
+              <h3>Biochemistry</h3>
+              <p>5 years</p>
+              <button type="button" class="programme-btn">View programme</button>
+            </article>
 
-<article class="card">
-  <h3>Chemistry</h3>
-  <p>5 years</p>
-  <button type="button" onclick="alert('Chemistry: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-    View programme
-  </button>
-</article>
+            <article class="card" data-title="chemistry" data-duration="5 years" data-description="Study matter, reactions, and analytical methods with opportunities in research, industry, and healthcare-related sciences.">
+              <h3>Chemistry</h3>
+              <p>5 years</p>
+              <button type="button" class="programme-btn">View programme</button>
+            </article>
 
-            
-            
-<article class="card">
-  <h3>Dentistry and Dental Surgery</h3>
-  <p>6 years</p>
-  <button type="button" onclick="alert('Dentistry and Dental Surgery: Explore study resources, academic guidance, and learning opportunities for your programme.')">
-    View programme
-  </button>
-</article>
+            <article class="card" data-title="dentistry and dental surgery" data-duration="6 years" data-description="Train in oral healthcare, surgical procedures, patient management, and preventive dentistry for comprehensive care.">
+              <h3>Dentistry and Dental Surgery</h3>
+              <p>6 years</p>
+              <button type="button" class="programme-btn">View programme</button>
+            </article>
+          </div>
 
+          <div id="programmeDetails" class="programme-details" aria-live="polite" hidden>
+            <h3 id="programmeTitle">Programme Details</h3>
+            <p><strong>Duration:</strong> <span id="programmeDuration">-</span></p>
+            <p id="programmeDescription">Select a programme to explore more details.</p>
+            <button type="button" class="programme-btn" id="closeProgrammeDetails">Close details</button>
           </div>
         </section>
-
-<div id="programmeDetails" class="card" style="display: none; margin-top: 24px;">
-  <h3 id="programmeTitle">Programme Details</h3>
-  <p id="programmeDuration"></p>
-  <p id="programmeDescription"></p>
-  <button type="button" onclick="document.getElementById('programmeDetails').style.display='none'">
-    Close details
-  </button>
-</div>
 
         <section id="events">
           <div class="section-heading">
@@ -919,7 +935,7 @@
               <li>
                 <div class="event-date"><span>18</span><span>OCT</span></div>
                 <div class="event-details">
-                  <strong>Innovation & Ideas Week</strong>
+                  <strong>Innovation &amp; Ideas Week</strong>
                   <span>Workshops, networking, and student-led creative sessions.</span>
                 </div>
               </li>
@@ -1008,22 +1024,22 @@
               <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
               <p>“I found events and opportunities I never knew existed on campus. It feels so useful.”</p>
               <div class="person-meta">
-                <div class="avatar">OH</div>
+                <div class="avatar">KB</div>
                 <div>
-                  <strong>Olu H.</strong><br />
-                  <span>Computer Science</span>
+                  <strong>Kofi B.</strong><br />
+                  <span>3rd Year</span>
                 </div>
               </div>
             </article>
 
             <article class="testimonial-box">
               <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <p>“The learning and rewards system keeps me engaged and makes student life more exciting.”</p>
+              <p>“The experience feels organized, community-driven, and genuinely helpful for students.”</p>
               <div class="person-meta">
-                <div class="avatar">AN</div>
+                <div class="avatar">TM</div>
                 <div>
-                  <strong>Amaka N.</strong><br />
-                  <span>Marketing</span>
+                  <strong>Tolu M.</strong><br />
+                  <span>1st Year</span>
                 </div>
               </div>
             </article>
@@ -1033,8 +1049,8 @@
         <section id="join">
           <div class="cta-box">
             <div>
-              <h3>Ready to explore campus life differently?</h3>
-              <p>Get involved, connect with others, and enjoy a more vibrant student experience.</p>
+              <h3>Ready to join the campus community?</h3>
+              <p>Start exploring your student journey with FUMMSA Life today.</p>
             </div>
             <a href="#home" class="btn btn-primary">Join FUMMSA Life</a>
           </div>
@@ -1043,9 +1059,7 @@
     </main>
 
     <footer>
-      <div class="container">
-        <p>&copy; 2026 FUMMSA Life. Your Campus. Your Community. Your World.</p>
-      </div>
+      <div class="container">© 2025 FUMMSA Life. Your campus. Your community. Your world.</div>
     </footer>
 
     <script>
@@ -1058,7 +1072,7 @@
           menuButton.setAttribute('aria-expanded', String(isOpen));
         });
 
-        document.querySelectorAll('.nav-links a').forEach((link) => {
+        nav.querySelectorAll('a').forEach((link) => {
           link.addEventListener('click', () => {
             nav.classList.remove('open');
             menuButton.setAttribute('aria-expanded', 'false');
@@ -1066,19 +1080,71 @@
         });
       }
 
-      const courseSearch = document.getElementById('courseSearch');
-      const courseCards = document.querySelectorAll('#courseList .card');
+      const searchInput = document.getElementById('courseSearch');
+      const programmeCards = [...document.querySelectorAll('#courseList .card')];
+      const programmeDetails = document.getElementById('programmeDetails');
+      const programmeTitle = document.getElementById('programmeTitle');
+      const programmeDuration = document.getElementById('programmeDuration');
+      const programmeDescription = document.getElementById('programmeDescription');
+      const programmeCount = document.getElementById('programmeCount');
+      const closeButton = document.getElementById('closeProgrammeDetails');
 
-      if (courseSearch) {
-        courseSearch.addEventListener('input', function () {
-          const query = this.value.trim().toLowerCase();
+      function updateProgrammeCount(visibleCount) {
+        const total = programmeCards.length;
+        programmeCount.textContent = `Showing ${visibleCount} of ${total} programmes`;
+      }
 
-          courseCards.forEach((card) => {
-            const matches = card.textContent.toLowerCase().includes(query);
-            card.style.display = matches ? '' : 'none';
+      function showProgrammeDetails(title, duration, description) {
+        programmeTitle.textContent = title;
+        programmeDuration.textContent = duration;
+        programmeDescription.textContent = description;
+        programmeDetails.hidden = false;
+        programmeDetails.classList.add('visible');
+      }
+
+      function hideProgrammeDetails() {
+        programmeDetails.hidden = true;
+        programmeDetails.classList.remove('visible');
+      }
+
+      if (closeButton) {
+        closeButton.addEventListener('click', hideProgrammeDetails);
+      }
+
+      programmeCards.forEach((card) => {
+        const button = card.querySelector('button');
+        button.addEventListener('click', () => {
+          showProgrammeDetails(
+            card.dataset.title
+              .split(' ')
+              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(' '),
+            card.dataset.duration,
+            card.dataset.description
+          );
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (event) => {
+          const query = event.target.value.trim().toLowerCase();
+          let visibleCount = 0;
+
+          programmeCards.forEach((card) => {
+            const matches = card.dataset.title.includes(query);
+            card.hidden = !matches;
+            if (matches) visibleCount += 1;
           });
+
+          updateProgrammeCount(visibleCount);
+
+          if (visibleCount === 0) {
+            hideProgrammeDetails();
+          }
         });
       }
+
+      updateProgrammeCount(programmeCards.length);
     </script>
   </body>
 </html>

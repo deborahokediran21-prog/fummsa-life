@@ -8,6 +8,12 @@
       content="FUMMSA Life — Your Campus. Your Community. Your World."
     />
     <meta name="theme-color" content="#10264d" />
+    <meta property="og:title" content="FUMMSA Life" />
+    <meta
+      property="og:description"
+      content="Everything students need to navigate campus life, connect with others, and grow together."
+    />
+    <meta property="og:type" content="website" />
     <title>FUMMSA Life</title>
     <style>
       :root {
@@ -21,6 +27,7 @@
         --muted: #58657a;
         --border: rgba(16, 38, 77, 0.12);
         --shadow: 0 18px 45px rgba(16, 38, 77, 0.12);
+        --radius: 20px;
       }
 
       * {
@@ -34,7 +41,7 @@
       }
 
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Segoe UI", Arial, sans-serif;
         background: linear-gradient(180deg, #f9fbff 0%, #f4f8fc 100%);
         color: var(--text);
         line-height: 1.6;
@@ -58,8 +65,20 @@
       a:focus-visible,
       button:focus-visible,
       input:focus-visible {
-        outline: 3px solid rgba(20, 125, 88, 0.4);
+        outline: 3px solid rgba(20, 125, 88, 0.45);
         outline-offset: 3px;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
       }
 
       .container {
@@ -72,7 +91,7 @@
         top: 0;
         z-index: 1000;
         background: rgba(16, 38, 77, 0.96);
-        backdrop-filter: blur(8px);
+        backdrop-filter: blur(10px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
 
@@ -81,6 +100,7 @@
         align-items: center;
         justify-content: space-between;
         min-height: 78px;
+        gap: 20px;
       }
 
       .brand {
@@ -117,13 +137,14 @@
         border-radius: 999px;
         padding: 0.95rem 1.4rem;
         font-weight: 700;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
         cursor: pointer;
       }
 
       .nav-cta {
         background: var(--green);
         color: var(--white);
+        box-shadow: 0 10px 20px rgba(20, 125, 88, 0.2);
       }
 
       .nav-cta:hover,
@@ -137,11 +158,11 @@
 
       .menu-button {
         display: none;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.18);
         background: transparent;
         color: var(--white);
         border-radius: 10px;
-        padding: 0.6rem 0.8rem;
+        padding: 0.65rem 0.8rem;
         cursor: pointer;
       }
 
@@ -295,7 +316,7 @@
       .card {
         background: var(--white);
         border: 1px solid var(--border);
-        border-radius: 18px;
+        border-radius: var(--radius);
         padding: 24px;
         box-shadow: 0 10px 30px rgba(16, 38, 77, 0.05);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -375,7 +396,7 @@
         display: inline-block;
         width: 10px;
         height: 10px;
-        background: var(--green); 
+        background: var(--green);
         border-radius: 50%;
         margin-top: 9px;
         flex-shrink: 0;
@@ -396,7 +417,7 @@
         color: var(--navy);
         border-radius: 12px;
         padding: 10px 8px;
-        font-weight: bold;
+        font-weight: 700;
       }
 
       .event-details {
@@ -656,6 +677,8 @@
     </style>
   </head>
   <body>
+    <a class="sr-only" href="#main-content">Skip to content</a>
+
     <header>
       <div class="container nav" id="nav">
         <a href="#home" class="brand" aria-label="FUMMSA Life home">FUMMSA Life</a>
@@ -665,12 +688,13 @@
           id="menuButton"
           aria-label="Toggle menu"
           aria-expanded="false"
+          aria-controls="mainNav"
           type="button"
         >
           Menu
         </button>
 
-        <nav class="nav-links" aria-label="Main navigation">
+        <nav class="nav-links" id="mainNav" aria-label="Main navigation">
           <a href="#home">Home</a>
           <a href="#campus">Campus Life</a>
           <a href="#academy">Academy</a>
@@ -730,11 +754,11 @@
       </div>
     </div>
 
-    <main>
+    <main id="main-content">
       <div class="container">
-        <section id="campus">
+        <section id="campus" aria-labelledby="campus-title">
           <div class="section-heading">
-            <h2>Explore Campus Life</h2>
+            <h2 id="campus-title">Explore Campus Life</h2>
             <p>
               Everything students need to navigate campus life, connect with others,
               and stay engaged beyond the classroom.
@@ -760,9 +784,9 @@
           </div>
         </section>
 
-        <section id="academy">
+        <section id="academy" aria-labelledby="academy-title">
           <div class="section-heading">
-            <h2>FUMMSA Academy</h2>
+            <h2 id="academy-title">FUMMSA Academy</h2>
             <p>
               Learn smarter with academic resources, helpful tools, and student-focused
               opportunities designed to support your journey.
@@ -826,13 +850,14 @@
           </div>
         </section>
 
-        <section id="programmes">
+        <section id="programmes" aria-labelledby="programmes-title">
           <div class="section-heading">
-            <h2>Explore Our 17 Academic Programmes</h2>
+            <h2 id="programmes-title">Explore Our 17 Academic Programmes</h2>
             <p>Find your programme and explore your academic journey.</p>
           </div>
 
           <div class="programme-toolbar">
+            <label class="sr-only" for="courseSearch">Search programmes</label>
             <input
               type="search"
               id="courseSearch"
@@ -856,9 +881,9 @@
           </div>
         </section>
 
-        <section id="events">
+        <section id="events" aria-labelledby="events-title">
           <div class="section-heading">
-            <h2>Upcoming Events</h2>
+            <h2 id="events-title">Upcoming Events</h2>
             <p>Stay engaged with events that bring students together and support growth.</p>
           </div>
 
@@ -909,9 +934,9 @@
           </div>
         </section>
 
-        <section id="connect">
+        <section id="connect" aria-labelledby="connect-title">
           <div class="section-heading">
-            <h2>Meet the Community</h2>
+            <h2 id="connect-title">Meet the Community</h2>
             <p>Connect with students, mentors, and leaders who make FUMMSA Life active and vibrant.</p>
           </div>
 
@@ -936,9 +961,9 @@
           </div>
         </section>
 
-        <section id="earn">
+        <section id="earn" aria-labelledby="earn-title">
           <div class="section-heading">
-            <h2>Earn While You Grow</h2>
+            <h2 id="earn-title">Earn While You Grow</h2>
             <p>Participation creates rewards, recognition, and real momentum for your journey.</p>
           </div>
 
@@ -981,10 +1006,10 @@
           </div>
         </section>
 
-        <section id="join">
+        <section id="join" aria-labelledby="join-title">
           <div class="cta-box">
             <div>
-              <h3>Ready to belong?</h3>
+              <h3 id="join-title">Ready to belong?</h3>
               <p>Join FUMMSA Life and start building your campus experience today.</p>
             </div>
             <a href="#home" class="btn btn-primary">Join Now</a>
@@ -1000,171 +1025,164 @@
     <script>
       const programmes = [
         {
-          title: 'Doctor of Optometry',
-          duration: '6 years',
-          description:
-            'Explore eye health, vision science, clinical examination, and clinical management of vision problems while building a strong foundation in patient care.'
+          title: 'Business Administration',
+          duration: '3 years / Full-time',
+          description: 'Build leadership, management, and entrepreneurial skills for modern business environments.'
         },
         {
-          title: 'Pharmacology',
-          duration: '4 years',
-          description:
-            'Study drug action, therapeutic uses, safety, and interactions to prepare for roles in healthcare, research, and patient support.'
+          title: 'Computer Science',
+          duration: '4 years / Full-time',
+          description: 'Learn programming, software systems, and digital problem-solving for innovative careers.'
         },
         {
-          title: 'Human Nutrition and Dietetics',
-          duration: '5 years',
-          description:
-            'Learn about nutrition science, food systems, dietary planning, and the relationship between food and human health.'
+          title: 'Mass Communication',
+          duration: '4 years / Full-time',
+          description: 'Develop communication, media, and storytelling skills for journalism and digital content.'
         },
         {
-          title: 'Radiography',
-          duration: '5 years',
-          description:
-            'Gain hands-on experience in diagnostic imaging and medical technology to support healthcare professionals in identifying health conditions.'
+          title: 'Accounting',
+          duration: '4 years / Full-time',
+          description: 'Master financial reporting, auditing, and decision-making for public and private sectors.'
         },
         {
-          title: 'Dental Therapy',
-          duration: '5 years',
-          description:
-            'Develop knowledge in preventive oral care, patient education, and clinical support for maintaining healthy teeth and gums.'
+          title: 'Economics',
+          duration: '4 years / Full-time',
+          description: 'Understand markets, policy, and economic systems that shape society and business.'
         },
         {
-          title: 'Medicine and Surgery',
-          duration: '6 years',
-          description:
-            'Prepare for a rewarding career in medicine through a strong foundation in diagnosis, treatment, clinical skills, and patient care.'
+          title: 'Psychology',
+          duration: '4 years / Full-time',
+          description: 'Explore human behavior, mental health, and social processes through evidence-based study.'
+        },
+        {
+          title: 'Public Health',
+          duration: '4 years / Full-time',
+          description: 'Prepare to improve health outcomes through policy, education, and community intervention.'
+        },
+        {
+          title: 'Biology',
+          duration: '4 years / Full-time',
+          description: 'Study life sciences and research methods for health, agriculture, and environmental work.'
+        },
+        {
+          title: 'Education',
+          duration: '4 years / Full-time',
+          description: 'Train future educators with practical teaching strategies and learner development skills.'
+        },
+        {
+          title: 'Law',
+          duration: '5 years / Full-time',
+          description: 'Study legal systems, justice, and advocacy to become effective professionals and leaders.'
+        },
+        {
+          title: 'Architecture',
+          duration: '5 years / Full-time',
+          description: 'Combine creativity, sustainability, and technical precision in built environment design.'
+        },
+        {
+          title: 'Engineering',
+          duration: '5 years / Full-time',
+          description: 'Develop analytical and technical expertise to solve practical engineering challenges.'
         },
         {
           title: 'Nursing',
-          duration: '5 years',
-          description:
-            'Build practical and compassionate nursing skills in patient care, assessment, health promotion, and disease prevention.'
+          duration: '5 years / Full-time',
+          description: 'Train compassionate healthcare professionals for clinical care and community wellbeing.'
         },
         {
-          title: 'Doctor of Physiotherapy',
-          duration: '6 years',
-          description:
-            'Explore rehabilitation, movement science, and therapeutic exercises used to help people recover from injuries and illness.'
+          title: 'Hospitality Management',
+          duration: '4 years / Full-time',
+          description: 'Learn service excellence, operations, and guest experience in dynamic industries.'
         },
         {
-          title: 'Information Technology and Health Informatics',
-          duration: '5 years',
-          description:
-            'Combine technology and healthcare systems to improve patient data management, health records, and digital health services.'
+          title: 'Information Technology',
+          duration: '4 years / Full-time',
+          description: 'Focus on digital systems, networking, security, and technology support in real-world settings.'
         },
         {
-          title: 'Doctor of Pharmacy',
-          duration: '6 years',
-          description:
-            'Study medicines, safe use, pharmaceutical care, and patient counselling to prepare for impactful clinical roles.'
+          title: 'Marketing',
+          duration: '4 years / Full-time',
+          description: 'Understand branding, consumer behavior, and digital campaigns that drive growth.'
         },
         {
-          title: 'Physiology',
-          duration: '5 years',
-          description:
-            'Learn how body systems function in health and disease, with pathways into healthcare, research, and laboratory science.'
-        },
-        {
-          title: 'Health Information Management',
-          duration: '5 years',
-          description:
-            'Develop skills in health records, compliance, healthcare administration, and the secure use of medical information.'
-        },
-        {
-          title: 'Microbiology',
-          duration: '5 years',
-          description:
-            'Explore microbes, disease processes, and laboratory principles that support public health, diagnosis, and scientific research.'
+          title: 'Entrepreneurship',
+          duration: '3 years / Full-time',
+          description: 'Build the mindset, skills, and strategies to launch and manage innovative ventures.'
         }
       ];
 
       const courseList = document.getElementById('courseList');
-      const courseSearch = document.getElementById('courseSearch');
+      const searchInput = document.getElementById('courseSearch');
       const programmeCount = document.getElementById('programmeCount');
       const programmeDetails = document.getElementById('programmeDetails');
       const programmeTitle = document.getElementById('programmeTitle');
       const programmeDuration = document.getElementById('programmeDuration');
       const programmeDescription = document.getElementById('programmeDescription');
 
-<div id="studyResources">
-  <h4>Study Resources</h4>
-  <p>Helpful learning materials for your academic journey.</p>
-  <ul>
-    <li>
-      <a href="https://www.ncbi.nlm.nih.gov/books/" target="_blank" rel="noopener noreferrer">
-        Free medical and science books
-      </a>
-    </li>
-    <li>
-      <a href="https://openstax.org/subjects/science" target="_blank" rel="noopener noreferrer">
-        Free science textbooks
-      </a>
-    </li>
-    <li>
-      <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener noreferrer">
-        Medical research articles
-      </a>
-    </li>
-  </ul>
-</div>
-
-      function showProgramme(programme) {
-        programmeTitle.textContent = programme.title;
-        programmeDuration.textContent = `Duration: ${programme.duration}`;
-        programmeDescription.textContent = programme.description;
-        programmeDetails.classList.add('visible');
-        programmeDetails.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-
-      function renderProgrammes(items) {
+      function renderPrograms(items) {
         courseList.innerHTML = '';
 
-        items.forEach((programme) => {
+        items.forEach((program) => {
           const article = document.createElement('article');
           article.className = 'card';
+          article.tabIndex = 0;
+          article.setAttribute('role', 'button');
+          article.setAttribute('aria-label', `View ${program.title}`);
 
-          const title = document.createElement('h3');
-          title.textContent = programme.title;
+          article.innerHTML = `
+            <div class="icon-box" aria-hidden="true">🎓</div>
+            <h3>${program.title}</h3>
+            <p>${program.duration}</p>
+          `;
 
-          const duration = document.createElement('p');
-          duration.textContent = programme.duration;
+          article.addEventListener('click', () => showProgramme(program));
+          article.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              showProgramme(program);
+            }
+          });
 
-          const button = document.createElement('button');
-          button.type = 'button';
-          button.className = 'programme-btn';
-          button.textContent = 'View programme';
-          button.addEventListener('click', () => showProgramme(programme));
-
-          article.appendChild(title);
-          article.appendChild(duration);
-          article.appendChild(button);
           courseList.appendChild(article);
         });
 
         programmeCount.textContent = `Showing ${items.length} of ${programmes.length} programmes`;
       }
 
-      courseSearch.addEventListener('input', (event) => {
+      function showProgramme(program) {
+        programmeTitle.textContent = program.title;
+        programmeDuration.textContent = `Duration: ${program.duration}`;
+        programmeDescription.textContent = program.description;
+        programmeDetails.classList.add('visible');
+      }
+
+      function filterPrograms(event) {
         const query = event.target.value.trim().toLowerCase();
+        const filtered = programmes.filter((program) =>
+          program.title.toLowerCase().includes(query) ||
+          program.description.toLowerCase().includes(query)
+        );
 
-        const filtered = programmes.filter((programme) => {
-          const haystack = `${programme.title} ${programme.description}`.toLowerCase();
-          return haystack.includes(query);
-        });
+        renderPrograms(filtered);
+      }
 
-        renderProgrammes(filtered);
-      });
+      searchInput.addEventListener('input', filterPrograms);
+      renderPrograms(programmes);
 
-      const menuButton = document.getElementById('menuButton');
       const nav = document.getElementById('nav');
+      const menuButton = document.getElementById('menuButton');
 
       menuButton.addEventListener('click', () => {
         const isOpen = nav.classList.toggle('open');
         menuButton.setAttribute('aria-expanded', String(isOpen));
       });
 
-      renderProgrammes(programmes);
+      document.querySelectorAll('.nav-links a').forEach((link) => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('open');
+          menuButton.setAttribute('aria-expanded', 'false');
+        });
+      });
     </script>
   </body>
 </html>

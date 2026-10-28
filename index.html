@@ -108,16 +108,22 @@
         color: var(--white);
       }
 
-      .nav-cta {
+      .nav-cta,
+      .btn,
+      .programme-btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        background: var(--green);
-        color: var(--white);
-        padding: 0.8rem 1.2rem;
         border-radius: 999px;
+        padding: 0.95rem 1.4rem;
         font-weight: 700;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+        cursor: pointer;
+      }
+
+      .nav-cta {
+        background: var(--green);
+        color: var(--white);
       }
 
       .nav-cta:hover,
@@ -183,18 +189,6 @@
         gap: 16px;
         flex-wrap: wrap;
         margin-top: 28px;
-      }
-
-      .btn,
-      .programme-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 999px;
-        padding: 0.95rem 1.4rem;
-        font-weight: 700;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        cursor: pointer;
       }
 
       .btn-primary {
@@ -381,7 +375,7 @@
         display: inline-block;
         width: 10px;
         height: 10px;
-        background: var(--green);
+        background: var(--green); 
         border-radius: 50%;
         margin-top: 9px;
         flex-shrink: 0;
@@ -666,7 +660,13 @@
       <div class="container nav" id="nav">
         <a href="#home" class="brand" aria-label="FUMMSA Life home">FUMMSA Life</a>
 
-        <button class="menu-button" id="menuButton" aria-label="Toggle menu" aria-expanded="false">
+        <button
+          class="menu-button"
+          id="menuButton"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          type="button"
+        >
           Menu
         </button>
 
@@ -674,6 +674,7 @@
           <a href="#home">Home</a>
           <a href="#campus">Campus Life</a>
           <a href="#academy">Academy</a>
+          <a href="#programmes">Programmes</a>
           <a href="#events">Events</a>
           <a href="#connect">Connect</a>
           <a href="#earn">Earn</a>
@@ -772,18 +773,54 @@
             <div class="academy-panel">
               <h3>Academic support that works for you</h3>
               <ul>
-                <li><span class="bullet" aria-hidden="true"></span><div><strong>Study resources</strong><br />Access learning materials and guidance for academic success.</div></li>
-                <li><span class="bullet" aria-hidden="true"></span><div><strong>Skill-building</strong><br />Grow your abilities with practical learning opportunities and challenges.</div></li>
-                <li><span class="bullet" aria-hidden="true"></span><div><strong>Student-first tools</strong><br />Use features designed to make campus life more productive and enjoyable.</div></li>
+                <li>
+                  <span class="bullet" aria-hidden="true"></span>
+                  <div>
+                    <strong>Study resources</strong><br />
+                    Access learning materials and guidance for academic success.
+                  </div>
+                </li>
+                <li>
+                  <span class="bullet" aria-hidden="true"></span>
+                  <div>
+                    <strong>Skill-building</strong><br />
+                    Grow your abilities with practical learning opportunities and challenges.
+                  </div>
+                </li>
+                <li>
+                  <span class="bullet" aria-hidden="true"></span>
+                  <div>
+                    <strong>Student-first tools</strong><br />
+                    Use features designed to make campus life more productive and enjoyable.
+                  </div>
+                </li>
               </ul>
             </div>
 
             <div class="academy-panel">
               <h3>Why students love it</h3>
               <ul>
-                <li><span class="bullet" aria-hidden="true"></span><div><strong>Simple access</strong><br />Everything is consolidated in one easy-to-use platform.</div></li>
-                <li><span class="bullet" aria-hidden="true"></span><div><strong>Real impact</strong><br />Resources and engagement opportunities help students stay motivated.</div></li>
-                <li><span class="bullet" aria-hidden="true"></span><div><strong>Built for campus life</strong><br />Made to connect learning, life, and community in one experience.</div></li>
+                <li>
+                  <span class="bullet" aria-hidden="true"></span>
+                  <div>
+                    <strong>Simple access</strong><br />
+                    Everything is consolidated in one easy-to-use platform.
+                  </div>
+                </li>
+                <li>
+                  <span class="bullet" aria-hidden="true"></span>
+                  <div>
+                    <strong>Real impact</strong><br />
+                    Resources and engagement opportunities help students stay motivated.
+                  </div>
+                </li>
+                <li>
+                  <span class="bullet" aria-hidden="true"></span>
+                  <div>
+                    <strong>Built for campus life</strong><br />
+                    Made to connect learning, life, and community in one experience.
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -802,344 +839,98 @@
               placeholder="Search programmes..."
               aria-label="Search academic programmes"
             />
-            <p id="programmeCount" class="programme-count" aria-live="polite">Showing 17 of 17 programmes</p>
+            <p id="programmeCount" class="programme-count" aria-live="polite">
+              Showing 17 of 17 programmes
+            </p>
           </div>
 
-          <div class="cards" id="courseList">
-            <article class="card" data-title="doctor of optometry" data-duration="6 years" data-description="Build a strong foundation in clinical practice, patient care, and eye health while exploring advanced optics and visual sciences.">
-              <h3>Doctor of Optometry</h3>
-              <p>6 years</p>
-              <button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Doctor of Optometry';
-document.getElementById('programmeDuration').textContent='Duration: 6 years';
-document.getElementById('programmeDescription').textContent='Explore eye health, vision science, clinical examination, and the assessment and management of vision problems. Find study resources and academic guidance for your programme.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-            </article>
+          <div class="cards" id="courseList" aria-live="polite"></div>
 
-            <article class="card" data-title="pharmacology" data-duration="4 years" data-description="Study drug action, therapeutic uses, and research in pharmacology to prepare for roles in healthcare and life sciences.">
-              <h3>Pharmacology</h3>
-              <p>4 years</p>
-              
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Pharmacology';
-document.getElementById('programmeDuration').textContent='Duration: 4 years';
-document.getElementById('programmeDescription').textContent='Explore how medicines work in the body, their uses, effects, safety, and interactions. Discover learning resources in drug science and the principles behind the safe use of medicines.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-
-            <article class="card" data-title="human nutrition and dietetics" data-duration="5 years" data-description="Learn about nutrition science, wellness, food systems, and patient-centered dietetic practice for improved health outcomes.">
-              <h3>Human Nutrition and Dietetics</h3>
-              <p>5 years</p>
-             
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Human Nutrition and Dietetics';
-document.getElementById('programmeDuration').textContent='Duration: 5 years';
-document.getElementById('programmeDescription').textContent='Explore nutrition, food science, dietary planning, and the relationship between food and human health. Discover learning resources about healthy eating and nutrition care.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-
-            <article class="card" data-title="radiography" data-duration="5 years" data-description="Gain hands-on skills in diagnostic imaging, patient care, and medical technology to support modern healthcare systems.">
-              <h3>Radiography</h3>
-              <p>5 years</p>
-             
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Radiography';
-document.getElementById('programmeDuration').textContent='Duration: 5 years';
-document.getElementById('programmeDescription').textContent='Explore medical imaging and the use of X-rays and other imaging techniques to help healthcare professionals examine and diagnose medical conditions. Discover learning resources in imaging science and patient care.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-
-            <article class="card" data-title="dental therapy" data-duration="5 years" data-description="Develop expertise in preventive oral care, clinical treatment, and patient education in a growing healthcare field.">
-              <h3>Dental Therapy</h3>
-              <p>5 years</p>
-              
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Dental Therapy';
-document.getElementById('programmeDuration').textContent='Duration: 5 years';
-document.getElementById('programmeDescription').textContent='Explore oral health education, preventive dental care, oral hygiene, and supporting patients in maintaining healthy teeth and gums. Discover learning resources in dental health and patient care.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-
-            <article class="card" data-title="medicine and surgery" data-duration="6 years" data-description="Prepare for a rewarding career in medicine through rigorous clinical training, diagnostic reasoning, and compassionate care.">
-              <h3>Medicine and Surgery</h3>
-              <p>6 years</p>
-              
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Medicine and Surgery';
-document.getElementById('programmeDuration').textContent='Duration: 6 years';
-document.getElementById('programmeDescription').textContent='Explore human health, the causes and diagnosis of diseases, medical treatment, clinical skills, and patient care. Discover learning resources to support your medical studies.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-
-            <article class="card" data-title="nursing" data-duration="5 years" data-description="Train to lead patient care, support families, and provide professional nursing services in diverse healthcare environments.">
-              <h3>Nursing</h3>
-              <p>5 years</p>
-              
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Nursing';
-document.getElementById('programmeDuration').textContent='Duration: 5 years';
-document.getElementById('programmeDescription').textContent='Explore patient care, health assessment, nursing practice, disease prevention, health promotion, and supporting patients throughout treatment and recovery.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-
-            <article class="card" data-title="doctor of physiotherapy" data-duration="6 years" data-description="Learn rehabilitation strategies, movement science, and patient treatment techniques to restore mobility and independence.">
-              <h3>Doctor of Physiotherapy</h3>
-              <p>6 years</p>
-             
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Doctor of Physiotherapy';
-document.getElementById('programmeDuration').textContent='Duration: 6 years';
-document.getElementById('programmeDescription').textContent='Explore human movement, rehabilitation, physical function, and therapeutic exercises used to help people recover from injuries, illness, and physical limitations.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-
-            <article class="card" data-title="information technology and health informatics" data-duration="5 years" data-description="Combine technology, healthcare systems, and analytics to improve data management and patient outcomes across health services.">
-              <h3>Information Technology and Health Informatics</h3>
-              <p>5 years</p>
-              
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Information Technology and Health Informatics';
-document.getElementById('programmeDuration').textContent='Duration: 5 years';
-document.getElementById('programmeDescription').textContent='Explore how information technology supports healthcare, including health records, clinical information systems, health data management, and digital tools for improving healthcare services.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-
-            <article class="card" data-title="doctor of pharmacy" data-duration="6 years" data-description="Explore drug development, patient counseling, and clinical practice to prepare for impactful work in pharmaceutical care.">
-              <h3>Doctor of Pharmacy</h3>
-              <p>6 years</p>
-             
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Doctor of Pharmacy';
-document.getElementById('programmeDuration').textContent='Duration: 6 years';
-document.getElementById('programmeDescription').textContent='Explore medicines, how they work, their safe use, patient counselling, pharmaceutical care, and the role of pharmacists in healthcare.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-
-            <article class="card" data-title="physiology" data-duration="5 years" data-description="Study how the human body functions in health and disease, opening pathways into research, healthcare, and laboratory science.">
-              <h3>Physiology</h3>
-              <p>5 years</p>
-              
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Physiology';
-document.getElementById('programmeDuration').textContent='Duration: 5 years';
-document.getElementById('programmeDescription').textContent='Explore how the human body functions, including the workings of the heart, lungs, nervous system, muscles, and other body systems in health and disease.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-
-            <article class="card" data-title="health information management" data-duration="5 years" data-description="Develop skills in health data management, records systems, compliance, and efficient healthcare operations.">
-              <h3>Health Information Management</h3>
-              <p>5 years</p>
-              
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Health Information Management';
-document.getElementById('programmeDuration').textContent='Duration: 5 years';
-document.getElementById('programmeDescription').textContent='Explore the collection, organisation, protection, and use of health records and medical information to support patient care, healthcare administration, and informed decision-making.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-
-            <article class="card" data-title="microbiology" data-duration="5 years" data-description="Explore microbes, disease processes, and laboratory methods that support public health, diagnostics, and research.">
-              <h3>Microbiology</h3>
-              <p>5 years</p>
-             
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Microbiology';
-document.getElementById('programmeDuration').textContent='Duration: 5 years';
-document.getElementById('programmeDescription').textContent='Explore microorganisms such as bacteria, viruses, fungi, and parasites, including their roles in health, disease, infection prevention, and laboratory investigation.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-
-            <article class="card" data-title="human anatomy" data-duration="5 years" data-description="Study the structure of the human body through detailed anatomical analysis, laboratory work, and clinical applications.">
-              <h3>Human Anatomy</h3>
-              <p>5 years</p>
-             
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Human Anatomy';
-document.getElementById('programmeDuration').textContent='Duration: 5 years';
-document.getElementById('programmeDescription').textContent='Explore the structure of the human body, including organs, bones, muscles, nerves, tissues, and how different body parts are organised and related.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-
-            <article class="card" data-title="biochemistry" data-duration="5 years" data-description="Understand life processes at the molecular level through chemistry, metabolism, and biological research.">
-              <h3>Biochemistry</h3>
-              <p>5 years</p>
-             
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Biochemistry';
-document.getElementById('programmeDuration').textContent='Duration: 5 years';
-document.getElementById('programmeDescription').textContent='Explore the chemical processes of living organisms, including proteins, enzymes, carbohydrates, fats, metabolism, and the molecular basis of health and disease.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-
-            <article class="card" data-title="chemistry" data-duration="5 years" data-description="Study matter, reactions, and analytical methods with opportunities in research, industry, and healthcare-related sciences.">
-              <h3>Chemistry</h3>
-              <p>5 years</p>
-             
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Chemistry';
-document.getElementById('programmeDuration').textContent='Duration: 5 years';
-document.getElementById('programmeDescription').textContent='Explore matter, chemical reactions, atoms, molecules, and the principles of chemical analysis, with applications relevant to science, laboratory work, and healthcare.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-
-            <article class="card" data-title="dentistry and dental surgery" data-duration="6 years" data-description="Train in oral healthcare, surgical procedures, patient management, and preventive dentistry for comprehensive care.">
-              <h3>Dentistry and Dental Surgery</h3>
-              <p>6 years</p>
-              
-<button type="button" onclick="
-document.getElementById('programmeTitle').textContent='Dentistry and Dental Surgery';
-document.getElementById('programmeDuration').textContent='Duration: 6 years';
-document.getElementById('programmeDescription').textContent='Explore oral health, the diagnosis and treatment of dental conditions, preventive dentistry, oral surgery, and the care of teeth, gums, and other oral structures.';
-document.getElementById('programmeDetails').style.display='block';
-document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
-">
-  View programme
-</button>
-
-            </article>
-          </div>
-
-          <div id="programmeDetails" class="programme-details" aria-live="polite" hidden>
-            <h3 id="programmeTitle">Programme Details</h3>
-            <p><strong>Duration:</strong> <span id="programmeDuration">-</span></p>
-            <p id="programmeDescription">Select a programme to explore more details.</p>
-            <button type="button" class="programme-btn" id="closeProgrammeDetails">Close details</button>
+          <div id="programmeDetails" class="programme-details" aria-live="polite">
+            <h3 id="programmeTitle">Programme Overview</h3>
+            <p id="programmeDuration">Duration: --</p>
+            <p id="programmeDescription">
+              Select a programme to learn more about the course and the opportunities it provides.
+            </p>
+            <button type="button" class="programme-btn">Apply now</button>
           </div>
         </section>
 
         <section id="events">
           <div class="section-heading">
-            <h2>Campus Events</h2>
-            <p>Discover activities, programmes, and student gatherings that bring the campus community together.</p>
+            <h2>Upcoming Events</h2>
+            <p>Stay engaged with events that bring students together and support growth.</p>
           </div>
 
-          <div class="event-list">
-            <ul>
-              <li>
-                <div class="event-date"><span>12</span><span>OCT</span></div>
-                <div class="event-details">
-                  <strong>Freshers Welcome Day</strong>
-                  <span>Meet new students, explore campus, and enjoy live activities.</span>
-                </div>
-              </li>
-              <li>
-                <div class="event-date"><span>18</span><span>OCT</span></div>
-                <div class="event-details">
-                  <strong>Innovation &amp; Ideas Week</strong>
-                  <span>Workshops, networking, and student-led creative sessions.</span>
-                </div>
-              </li>
-              <li>
-                <div class="event-date"><span>02</span><span>NOV</span></div>
-                <div class="event-details">
-                  <strong>Leadership Forum</strong>
-                  <span>Connect with student leaders and learn practical skills.</span>
-                </div>
-              </li>
-            </ul>
+          <div class="feature-split">
+            <div class="event-list">
+              <ul>
+                <li>
+                  <div class="event-date">
+                    <span>12</span>
+                    <small>APR</small>
+                  </div>
+                  <div class="event-details">
+                    <strong>Student Leadership Summit</strong>
+                    <span>Learnership, networking and leadership development.</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="event-date">
+                    <span>20</span>
+                    <small>APR</small>
+                  </div>
+                  <div class="event-details">
+                    <strong>Campus Wellness Fair</strong>
+                    <span>Wellbeing screenings, activities and health resources.</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="event-date">
+                    <span>05</span>
+                    <small>MAY</small>
+                  </div>
+                  <div class="event-details">
+                    <strong>Innovation Challenge</strong>
+                    <span>Pitch ideas and build your skills in a real-world challenge.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="points-box">
+              <div class="points-badge" aria-hidden="true">★</div>
+              <h3>Turn participation into momentum.</h3>
+              <p>
+                Join events, complete activities, and unlock opportunities to grow your skills,
+                confidence, and campus network.
+              </p>
+            </div>
           </div>
         </section>
 
         <section id="connect">
           <div class="section-heading">
-            <h2>Student Connect</h2>
-            <p>Find coursemates, friends, and communities that help you thrive throughout your academic journey.</p>
+            <h2>Meet the Community</h2>
+            <p>Connect with students, mentors, and leaders who make FUMMSA Life active and vibrant.</p>
           </div>
 
           <div class="community-panel">
             <div class="community-row">
               <div class="person">
-                <div class="avatar">AW</div>
-                <h4>Aisha W.</h4>
-                <p>Business student sharing class notes and campus updates.</p>
+                <div class="avatar" aria-hidden="true">AM</div>
+                <h4>Ada M.</h4>
+                <p>Student Mentor</p>
               </div>
               <div class="person">
-                <div class="avatar">JT</div>
-                <h4>John T.</h4>
-                <p>Creative thinker building a student networking circle.</p>
+                <div class="avatar" aria-hidden="true">ZT</div>
+                <h4>Zainab T.</h4>
+                <p>Campus Leader</p>
               </div>
               <div class="person">
-                <div class="avatar">RM</div>
-                <h4>Ruth M.</h4>
-                <p>Leading a community group focused on student growth.</p>
+                <div class="avatar" aria-hidden="true">OK</div>
+                <h4>Olamide K.</h4>
+                <p>Club Coordinator</p>
               </div>
             </div>
           </div>
@@ -1147,67 +938,43 @@ document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
 
         <section id="earn">
           <div class="section-heading">
-            <h2>Life Earn</h2>
-            <p>Complete activities and quizzes to earn virtual points while staying engaged in campus life.</p>
-          </div>
-
-          <div class="feature-split">
-            <div class="points-box">
-              <div class="points-badge" aria-hidden="true">★</div>
-              <div>
-                <h3>Earn rewards for participation</h3>
-                <p>Points are for use within FUMMSA Life and are not real money. They help power your student experience.</p>
-              </div>
-            </div>
-
-            <div class="points-box">
-              <ul style="list-style:none; display:grid; gap:14px;">
-                <li><span class="bullet" aria-hidden="true"></span><div><strong>Quick activities</strong><br />Join polls, challenges, and educational tasks.</div></li>
-                <li><span class="bullet" aria-hidden="true"></span><div><strong>Progress tracking</strong><br />See how your engagement builds over time.</div></li>
-                <li><span class="bullet" aria-hidden="true"></span><div><strong>More campus fun</strong><br />Unlock new experiences as you keep participating.</div></li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section aria-labelledby="reviews">
-          <div class="section-heading" id="reviews">
-            <h2>What students are saying</h2>
+            <h2>Earn While You Grow</h2>
+            <p>Participation creates rewards, recognition, and real momentum for your journey.</p>
           </div>
 
           <div class="testimonial-grid">
             <article class="testimonial-box">
               <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <p>“FUMMSA Life makes it easier to stay connected and feel part of the campus community.”</p>
+              <p>“The platform made it easy to discover opportunities and connect with peers.”</p>
               <div class="person-meta">
-                <div class="avatar">SE</div>
+                <div class="avatar" aria-hidden="true">CH</div>
                 <div>
-                  <strong>Sarah E.</strong><br />
-                  <span>2nd Year</span>
+                  <strong>Chinelo H.</strong>
+                  <div>Student</div>
                 </div>
               </div>
             </article>
 
             <article class="testimonial-box">
               <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <p>“I found events and opportunities I never knew existed on campus. It feels so useful.”</p>
+              <p>“From events to learning activities, everything feels useful and student-centered.”</p>
               <div class="person-meta">
-                <div class="avatar">KB</div>
+                <div class="avatar" aria-hidden="true">BA</div>
                 <div>
-                  <strong>Kofi B.</strong><br />
-                  <span>3rd Year</span>
+                  <strong>Bright A.</strong>
+                  <div>Final Year</div>
                 </div>
               </div>
             </article>
 
             <article class="testimonial-box">
               <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <p>“The experience feels organized, community-driven, and genuinely helpful for students.”</p>
+              <p>“I found community, support, and practical opportunities for my growth in one place.”</p>
               <div class="person-meta">
-                <div class="avatar">TM</div>
+                <div class="avatar" aria-hidden="true">TO</div>
                 <div>
-                  <strong>Tolu M.</strong><br />
-                  <span>1st Year</span>
+                  <strong>Tosin O.</strong>
+                  <div>Student Leader</div>
                 </div>
               </div>
             </article>
@@ -1217,102 +984,165 @@ document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
         <section id="join">
           <div class="cta-box">
             <div>
-              <h3>Ready to join the campus community?</h3>
-              <p>Start exploring your student journey with FUMMSA Life today.</p>
+              <h3>Ready to belong?</h3>
+              <p>Join FUMMSA Life and start building your campus experience today.</p>
             </div>
-            <a href="#home" class="btn btn-primary">Join FUMMSA Life</a>
+            <a href="#home" class="btn btn-primary">Join Now</a>
           </div>
         </section>
       </div>
     </main>
 
     <footer>
-      <div class="container">© 2025 FUMMSA Life. Your campus. Your community. Your world.</div>
+      <div class="container">© 2025 FUMMSA Life. All rights reserved.</div>
     </footer>
 
     <script>
-      const nav = document.getElementById('nav');
-      const menuButton = document.getElementById('menuButton');
+      const programmes = [
+        {
+          title: 'Doctor of Optometry',
+          duration: '6 years',
+          description:
+            'Explore eye health, vision science, clinical examination, and clinical management of vision problems while building a strong foundation in patient care.'
+        },
+        {
+          title: 'Pharmacology',
+          duration: '4 years',
+          description:
+            'Study drug action, therapeutic uses, safety, and interactions to prepare for roles in healthcare, research, and patient support.'
+        },
+        {
+          title: 'Human Nutrition and Dietetics',
+          duration: '5 years',
+          description:
+            'Learn about nutrition science, food systems, dietary planning, and the relationship between food and human health.'
+        },
+        {
+          title: 'Radiography',
+          duration: '5 years',
+          description:
+            'Gain hands-on experience in diagnostic imaging and medical technology to support healthcare professionals in identifying health conditions.'
+        },
+        {
+          title: 'Dental Therapy',
+          duration: '5 years',
+          description:
+            'Develop knowledge in preventive oral care, patient education, and clinical support for maintaining healthy teeth and gums.'
+        },
+        {
+          title: 'Medicine and Surgery',
+          duration: '6 years',
+          description:
+            'Prepare for a rewarding career in medicine through a strong foundation in diagnosis, treatment, clinical skills, and patient care.'
+        },
+        {
+          title: 'Nursing',
+          duration: '5 years',
+          description:
+            'Build practical and compassionate nursing skills in patient care, assessment, health promotion, and disease prevention.'
+        },
+        {
+          title: 'Doctor of Physiotherapy',
+          duration: '6 years',
+          description:
+            'Explore rehabilitation, movement science, and therapeutic exercises used to help people recover from injuries and illness.'
+        },
+        {
+          title: 'Information Technology and Health Informatics',
+          duration: '5 years',
+          description:
+            'Combine technology and healthcare systems to improve patient data management, health records, and digital health services.'
+        },
+        {
+          title: 'Doctor of Pharmacy',
+          duration: '6 years',
+          description:
+            'Study medicines, safe use, pharmaceutical care, and patient counselling to prepare for impactful clinical roles.'
+        },
+        {
+          title: 'Physiology',
+          duration: '5 years',
+          description:
+            'Learn how body systems function in health and disease, with pathways into healthcare, research, and laboratory science.'
+        },
+        {
+          title: 'Health Information Management',
+          duration: '5 years',
+          description:
+            'Develop skills in health records, compliance, healthcare administration, and the secure use of medical information.'
+        },
+        {
+          title: 'Microbiology',
+          duration: '5 years',
+          description:
+            'Explore microbes, disease processes, and laboratory principles that support public health, diagnosis, and scientific research.'
+        }
+      ];
 
-      if (menuButton && nav) {
-        menuButton.addEventListener('click', () => {
-          const isOpen = nav.classList.toggle('open');
-          menuButton.setAttribute('aria-expanded', String(isOpen));
-        });
-
-        nav.querySelectorAll('a').forEach((link) => {
-          link.addEventListener('click', () => {
-            nav.classList.remove('open');
-            menuButton.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
-
-      const searchInput = document.getElementById('courseSearch');
-      const programmeCards = [...document.querySelectorAll('#courseList .card')];
+      const courseList = document.getElementById('courseList');
+      const courseSearch = document.getElementById('courseSearch');
+      const programmeCount = document.getElementById('programmeCount');
       const programmeDetails = document.getElementById('programmeDetails');
       const programmeTitle = document.getElementById('programmeTitle');
       const programmeDuration = document.getElementById('programmeDuration');
       const programmeDescription = document.getElementById('programmeDescription');
-      const programmeCount = document.getElementById('programmeCount');
-      const closeButton = document.getElementById('closeProgrammeDetails');
 
-      function updateProgrammeCount(visibleCount) {
-        const total = programmeCards.length;
-        programmeCount.textContent = `Showing ${visibleCount} of ${total} programmes`;
-      }
-
-      function showProgrammeDetails(title, duration, description) {
-        programmeTitle.textContent = title;
-        programmeDuration.textContent = duration;
-        programmeDescription.textContent = description;
-        programmeDetails.hidden = false;
+      function showProgramme(programme) {
+        programmeTitle.textContent = programme.title;
+        programmeDuration.textContent = `Duration: ${programme.duration}`;
+        programmeDescription.textContent = programme.description;
         programmeDetails.classList.add('visible');
+        programmeDetails.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
-      function hideProgrammeDetails() {
-        programmeDetails.hidden = true;
-        programmeDetails.classList.remove('visible');
-      }
+      function renderProgrammes(items) {
+        courseList.innerHTML = '';
 
-      if (closeButton) {
-        closeButton.addEventListener('click', hideProgrammeDetails);
-      }
+        items.forEach((programme) => {
+          const article = document.createElement('article');
+          article.className = 'card';
 
-      programmeCards.forEach((card) => {
-        const button = card.querySelector('button');
-        button.addEventListener('click', () => {
-          showProgrammeDetails(
-            card.dataset.title
-              .split(' ')
-              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-              .join(' '),
-            card.dataset.duration,
-            card.dataset.description
-          );
+          const title = document.createElement('h3');
+          title.textContent = programme.title;
+
+          const duration = document.createElement('p');
+          duration.textContent = programme.duration;
+
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'programme-btn';
+          button.textContent = 'View programme';
+          button.addEventListener('click', () => showProgramme(programme));
+
+          article.appendChild(title);
+          article.appendChild(duration);
+          article.appendChild(button);
+          courseList.appendChild(article);
         });
+
+        programmeCount.textContent = `Showing ${items.length} of ${programmes.length} programmes`;
+      }
+
+      courseSearch.addEventListener('input', (event) => {
+        const query = event.target.value.trim().toLowerCase();
+
+        const filtered = programmes.filter((programme) => {
+          const haystack = `${programme.title} ${programme.description}`.toLowerCase();
+          return haystack.includes(query);
+        });
+
+        renderProgrammes(filtered);
       });
 
-      if (searchInput) {
-        searchInput.addEventListener('input', (event) => {
-          const query = event.target.value.trim().toLowerCase();
-          let visibleCount = 0;
+      const menuButton = document.getElementById('menuButton');
+      const nav = document.getElementById('nav');
 
-          programmeCards.forEach((card) => {
-            const matches = card.dataset.title.includes(query);
-            card.hidden = !matches;
-            if (matches) visibleCount += 1;
-          });
+      menuButton.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+      });
 
-          updateProgrammeCount(visibleCount);
-
-          if (visibleCount === 0) {
-            hideProgrammeDetails();
-          }
-        });
-      }
-
-      updateProgrammeCount(programmeCards.length);
+      renderProgrammes(programmes);
     </script>
   </body>
 </html>

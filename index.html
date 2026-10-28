@@ -809,7 +809,15 @@
             <article class="card" data-title="doctor of optometry" data-duration="6 years" data-description="Build a strong foundation in clinical practice, patient care, and eye health while exploring advanced optics and visual sciences.">
               <h3>Doctor of Optometry</h3>
               <p>6 years</p>
-              <button type="button" class="programme-btn">View programme</button>
+              <button type="button" onclick="
+document.getElementById('programmeTitle').textContent='Doctor of Optometry';
+document.getElementById('programmeDuration').textContent='Duration: 6 years';
+document.getElementById('programmeDescription').textContent='Explore eye health, vision science, clinical examination, and the assessment and management of vision problems. Find study resources and academic guidance for your programme.';
+document.getElementById('programmeDetails').style.display='block';
+document.getElementById('programmeDetails').scrollIntoView({behavior:'smooth'});
+">
+  View programme
+</button>
             </article>
 
             <article class="card" data-title="pharmacology" data-duration="4 years" data-description="Study drug action, therapeutic uses, and research in pharmacology to prepare for roles in healthcare and life sciences.">

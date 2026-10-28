@@ -4,297 +4,150 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FUMMSA Life | Your Campus, Your Community, Your World</title>
+  <meta name="description" content="FUMMSA Life — Your Campus. Your Community. Your World.">
+  <title>FUMMSA Life</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: Arial, sans-serif;
-      background: #f4f8f5;
-      color: #17372b;
+      background: #f5f8fc;
+      color: #17243a;
       line-height: 1.6;
     }
 
     header {
-      background: #073d2b;
+      background: #10264d;
       color: white;
-      padding: 18px 6%;
+      padding: 20px 7%;
+    }
+
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 16px;
     }
-
-    .logo { font-size: 23px; font-weight: bold; }
-
-    nav { display: flex; flex-wrap: wrap; gap: 16px; }
 
     nav a {
       color: white;
       text-decoration: none;
-      font-size: 14px;
+      margin-left: 16px;
     }
-
-    nav a:hover { color: #d7ff78; }
 
     .hero {
-      text-align: center;
-      padding: 80px 6%;
+      padding: 70px 7%;
+      background: linear-gradient(135deg, #10264d, #147d58);
       color: white;
-      background: linear-gradient(135deg, #073d2b, #16845c);
-    }
-
-    .hero small {
-      color: #d7ff78;
-      letter-spacing: 2px;
-      font-weight: bold;
+      text-align: center;
     }
 
     .hero h1 {
-      font-size: clamp(36px, 6vw, 62px);
-      line-height: 1.15;
-      margin: 20px 0;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 12px;
     }
 
-    .hero p { max-width: 650px; margin: 0 auto 25px; }
-
-    .button {
-      display: inline-block;
-      background: #d7ff78;
-      color: #123b27;
-      padding: 12px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 5px;
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
     }
 
-    section { padding: 55px 6%; }
-
-    .heading { text-align: center; margin-bottom: 28px; }
-
-    .heading h2 { font-size: 30px; margin-bottom: 8px; }
-
-    .heading p { color: #63756a; }
+    section {
+      margin-bottom: 45px;
+    }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      gap: 18px;
+      margin-top: 20px;
     }
 
     .card {
       background: white;
       padding: 24px;
-      border: 1px solid #e0e9e2;
       border-radius: 14px;
-      box-shadow: 0 5px 18px #123b270c;
-    }
-
-    .emoji { font-size: 34px; }
-
-    .card h3 { margin: 10px 0; }
-
-    .card p { color: #63756a; font-size: 14px; }
-
-    .welcome { text-align: center; background: #e6f4e9; }
-
-    .welcome p { max-width: 750px; margin: auto; }
-
-    input, select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #cbd8ce;
-      border-radius: 8px;
-      font-size: 16px;
-      margin: 8px 0;
+      box-shadow: 0 4px 15px #10264d12;
     }
 
     footer {
-      background: #062d21;
-      color: #d9e9df;
+      background: #10264d;
+      color: white;
       text-align: center;
-      padding: 25px;
-      font-size: 14px;
-    }
-
-    @media (max-width: 600px) {
-      header { flex-direction: column; align-items: flex-start; }
-      .hero { padding: 60px 5%; }
+      padding: 24px;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">🌿 FUMMSA Life</div>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#campus">Campus Life</a>
-      <a href="#academy">Academy</a>
-      <a href="#events">Events</a>
-      <a href="#connect">Connect</a>
-      <a href="#earn">Earn</a>
+      <h2>FUMMSA Life</h2>
+      <div>
+        <a href="#home">Home</a>
+        <a href="#campus">Campus Life</a>
+        <a href="#academy">Academy</a>
+        <a href="#events">Events</a>
+        <a href="#connect">Connect</a>
+        <a href="#earn">Earn</a>
+      </div>
     </nav>
   </header>
 
+  <section class="hero" id="home">
+    <h1>Your Campus. Your Community. Your World.</h1>
+    <p>Explore campus life, learn together, meet students and discover opportunities.</p>
+  </section>
+
   <main>
-    <section class="hero" id="home">
-      <small>WELCOME TO YOUR CAMPUS WORLD</small>
-      <h1>Your Campus.<br>Your Community.<br>Your World.</h1>
-      <p>
-        Explore campus life, discover learning opportunities, meet your
-        coursemates and make unforgettable university memories.
-      </p>
-      <a class="button" href="#campus">Explore Campus</a>
-      <a class="button" href="#academy">Explore Academy</a>
-    </section>
-
-    <section class="welcome">
-      <div class="heading">
-        <h2>More Than a University Website</h2>
-      </div>
-      <p>
-        FUMMSA Life brings academics, student connections, events and
-        campus experiences together in one community for the Federal
-        University of Medical Sciences, Abeokuta.
-      </p>
-    </section>
-
     <section id="campus">
-      <div class="heading">
-        <h2>Explore Campus Life</h2>
-        <p>Discover places and activities around campus.</p>
-      </div>
+      <h2>Explore Campus Life</h2>
       <div class="cards">
         <article class="card">
-          <div class="emoji">🏠</div>
-          <h3>Hostel Life</h3>
-          <p>Student living, useful tips and campus experiences.</p>
+          <h3>Campus Map</h3>
+          <p>Discover campus locations and activities.</p>
         </article>
         <article class="card">
-          <div class="emoji">🛍️</div>
-          <h3>Marketplace</h3>
-          <p>A future hub for student businesses and services.</p>
+          <h3>Student Community</h3>
+          <p>Meet fellow students and coursemates.</p>
         </article>
         <article class="card">
-          <div class="emoji">🎭</div>
-          <h3>Campus Hangouts</h3>
-          <p>Discover student activities and places to meet.</p>
-        </article>
-        <article class="card">
-          <div class="emoji">🏛️</div>
-          <h3>Campus Buildings</h3>
-          <p>A starting point for exploring campus locations.</p>
+          <h3>Campus Marketplace</h3>
+          <p>Discover student products and services.</p>
         </article>
       </div>
     </section>
 
     <section id="academy">
-      <div class="heading">
-        <h2>FUMMSA Academy</h2>
-        <p>Find your programme and discover your academic community.</p>
-      </div>
-      <input id="courseSearch" type="search" placeholder="Search academic programmes...">
-      <div class="cards" id="courseList"></div>
-      <p id="noCourses" style="display:none;text-align:center;margin-top:20px;">
-        No programme found. Try another search.
-      </p>
+      <h2>FUMMSA Academy</h2>
+      <p>Academic resources and learning opportunities for students.</p>
     </section>
 
     <section id="events">
-      <div class="heading">
-        <h2>Campus Events</h2>
-        <p>Discover activities, gatherings and student programmes.</p>
-      </div>
-      <div class="card" style="text-align:center">
-        <div class="emoji">📅</div>
-        <h3>Events Centre</h3>
-        <p>Event listings and proposal submissions will be added as we build.</p>
-      </div>
+      <h2>Campus Events</h2>
+      <p>Discover activities, programmes and student gatherings.</p>
     </section>
 
     <section id="connect">
-      <div class="heading">
-        <h2>Student Connect</h2>
-        <p>Build friendships and meet people in your academic community.</p>
-      </div>
-      <div class="cards">
-        <article class="card">
-          <div class="emoji">🤝</div>
-          <h3>Meet Coursemates</h3>
-          <p>Find students in your course and level when student accounts are added.</p>
-        </article>
-        <article class="card">
-          <div class="emoji">👤</div>
-          <h3>Student Profiles</h3>
-          <p>Profiles, avatars and private messaging are planned features.</p>
-        </article>
-      </div>
+      <h2>Student Connect</h2>
+      <p>Find coursemates and build your campus community.</p>
     </section>
 
     <section id="earn">
-      <div class="heading">
-        <h2>Life Earn</h2>
-        <p>Learn, participate and work toward virtual campus rewards.</p>
-      </div>
-      <div class="card" style="text-align:center">
-        <div class="emoji">⭐</div>
-        <h3>Virtual Points</h3>
-        <p>Future quizzes and challenges can reward in-site points, not real money.</p>
-      </div>
+      <h2>Life Earn</h2>
+      <p>Complete activities and quizzes to earn virtual points.</p>
+      <p><small>Points are for use within FUMMSA Life and are not real money.</small></p>
     </section>
   </main>
 
   <footer>
-    <strong>FUMMSA Life</strong>
-    <p>Your Campus. Your Community. Your World.</p>
-    <p>Made for the FUMMSA student community.</p>
+    <p>&copy; 2026 FUMMSA Life. Your Campus. Your Community. Your World.</p>
   </footer>
-
-  <script>
-    const programmes = [
-      ["Doctor of Optometry", 6],
-      ["Pharmacology", 4],
-      ["Human Nutrition and Dietetics", 5],
-      ["Radiography", 5],
-      ["Dental Therapy", 5],
-      ["Medicine and Surgery", 6],
-      ["Nursing", 5],
-      ["Doctor of Physiotherapy", 6],
-      ["Information Technology and Health Informatics", 5],
-      ["Doctor of Pharmacy", 6],
-      ["Physiology", 5],
-      ["Health Information Management", 5],
-      ["Microbiology", 5],
-      ["Human Anatomy", 5],
-      ["Biochemistry", 5],
-      ["Chemistry", 5],
-      ["Dentistry and Dental Surgery", 6]
-    ];
-
-    const courseList = document.getElementById("courseList");
-    const courseSearch = document.getElementById("courseSearch");
-    const noCourses = document.getElementById("noCourses");
-
-    function showCourses(searchText = "") {
-      const filtered = programmes.filter(programme =>
-        programme[0].toLowerCase().includes(searchText.toLowerCase())
-      );
-
-      courseList.innerHTML = filtered.map(programme => `
-        <article class="card">
-          <div class="emoji">🎓</div>
-          <h3>${programme[0]}</h3>
-          <p>Programme duration: ${programme[1]} years</p>
-        </article>
-      `).join("");
-
-      noCourses.style.display = filtered.length ? "none" : "block";
-    }
-
-    courseSearch.addEventListener("input", event => showCourses(event.target.value));
-    showCourses();
-  </script>
 </body>
 </html>
+
